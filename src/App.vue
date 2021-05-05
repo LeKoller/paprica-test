@@ -27,6 +27,7 @@ export default defineComponent({
     outline: none;
     border: none;
     cursor: pointer;
+    transition: all 0.25s ease;
   }
 
   .yellow_chars {

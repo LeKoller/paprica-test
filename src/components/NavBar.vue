@@ -12,14 +12,20 @@
       <router-link to="/#"> <span>Main Course</span> </router-link>
     </div>
 
-    <div id="search_bar">
-      <input type="text" name="search" id="search_input" placeholder="Search" />
+    <form id="search_bar" @submit.prevent="() => {}">
+      <input
+        type="text"
+        name="search"
+        id="search_input"
+        placeholder="Search"
+        @keydown.enter.prevent="() => {}"
+      />
       <button id="search_button">
         <span class="material-icons" id="search_icon">
           search
         </span>
       </button>
-    </div>
+    </form>
 
     <button id="buger_button">
       <img src="@/assets/burger_button.png" alt="Button icon" />
@@ -50,6 +56,12 @@ export default defineComponent({
 
   #buger_button {
     margin-left: 2.53vw;
+    padding: 8px;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
   }
 
   #logo {
@@ -80,6 +92,11 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
 
     #search_input {
       background-color: transparent;
@@ -99,7 +116,12 @@ export default defineComponent({
 
       #search_icon {
         font-size: 38px;
-        color: #bfbfbf;
+        color: #bbb;
+        transition: all 0.25s ease;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
@@ -110,6 +132,7 @@ export default defineComponent({
 
     a {
       text-decoration: none;
+      outline: none;
 
       span {
         padding: 6px 1.55vw;
