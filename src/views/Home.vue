@@ -88,7 +88,7 @@ export default defineComponent({
     z-index: 6;
     position: absolute;
     bottom: 8vh;
-    left: 64vw;
+    right: 8vw;
     display: flex;
     align-items: center;
 
