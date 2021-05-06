@@ -2,18 +2,31 @@
   <div id="container">
     <div id="main_content">
       <LeftSide />
-      <div id="slider_container">
-        <img src="@/assets/burger.png" alt="Hamburguer" id="burger_pic" />
-        <div id="burger_case">
-          <span id="bur">BUR</span>
-          <span id="ger">GER</span>
-          <span id="flavor">
-            Spicy Beef <span class="yellow_chars">Burger</span>
-          </span>
-        </div>
-        <div id="social_media">
-          <span id="dont_miss">Don’t Miss Our Promo On</span>
-        </div>
+      <RightSide />
+    </div>
+
+    <div id="social_media">
+      <span id="dont_miss">Don’t Miss Our Promo On</span>
+      <div class="external_link" @click="() => {}">
+        <img
+          src="@/assets/facebook.png"
+          alt="Facebook icon"
+          class="social_media_icon"
+        />
+      </div>
+      <div class="external_link" @click="() => {}">
+        <img
+          src="@/assets/instagram.png"
+          alt="Instagram icon"
+          class="social_media_icon"
+        />
+      </div>
+      <div class="external_link" @click="() => {}">
+        <img
+          src="@/assets/twitter.png"
+          alt="Twitter icon"
+          class="social_media_icon"
+        />
       </div>
     </div>
 
@@ -31,6 +44,7 @@ import UpperLeft from "../components/shapes/UpperLeft.vue";
 import DownerLeft from "../components/shapes/DownerLeft.vue";
 import Right from "../components/shapes/Right.vue";
 import LeftSide from "../components/LeftSide.vue";
+import RightSide from "../components/RightSide.vue";
 
 export default defineComponent({
   name: "Home",
@@ -39,6 +53,7 @@ export default defineComponent({
     DownerLeft,
     Right,
     LeftSide,
+    RightSide,
   },
   setup() {},
 });
@@ -67,63 +82,42 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
 
-    #slider_container {
-      z-index: 2;
-      width: 100%;
-      position: relative;
+  #social_media {
+    z-index: 6;
+    position: absolute;
+    bottom: 8vh;
+    left: 64vw;
+    display: flex;
+    align-items: center;
 
-      #burger_case {
-        width: 532px;
-        height: 666px;
-        position: absolute;
-        right: 12vw;
-        top: 7.2vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        #bur,
-        #ger {
-          z-index: 3;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 230px;
-          color: transparent;
-          -webkit-text-stroke: 2px #b9b9b9;
-          opacity: 0.4;
-          margin: 0;
-          padding: 0;
-        }
-
-        #flavor {
-          z-index: 5;
-          position: absolute;
-          font-size: 49px;
-          font-family: "Modak", cursive;
-          left: 70px;
-          bottom: 56px;
-        }
-      }
-
-      #burger_pic {
-        z-index: 4;
-        top: 16.5vh;
-        right: 7.74vw;
-        -webkit-filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.1));
-        filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.1));
-        position: absolute;
-      }
+    #dont_miss {
+      font-size: 19px;
+      opacity: 0.7019607843137254;
+      margin-right: 50px;
     }
 
-    #social_media {
-      position: absolute;
-      top: calc(90vh - 135px);
-      left: 264px;
+    .external_link {
+      margin-right: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 52px;
+      height: 52px;
+      background-color: #fff;
+      border-radius: 999px;
+      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
 
-      #dont_miss {
-        font-size: 19px;
-        opacity: 0.7019607843137254;
+      .social_media_icon {
+        transition: all 0.25s ease;
+      }
+
+      &:hover {
+        .social_media_icon {
+          opacity: 0.4;
+        }
       }
     }
   }

@@ -76,8 +76,9 @@ main {
       width: 435px;
       font-size: 14px;
       margin-top: 2vh;
-      color: #bbbbbb;
+      color: #9b9aa6;
       text-align: start;
+      line-height: 140%;
     }
 
     #get_started_button {
@@ -86,23 +87,28 @@ main {
       color: #0e0d2a;
       border-radius: 999px;
       opacity: 0.4;
-      padding: 17px 30px;
+      padding: 12px 22px;
       cursor: pointer;
       transition: all 0.25s ease;
 
       &:hover {
         background-color: #101010;
         color: #fff;
+
+        span {
+          opacity: 1;
+        }
       }
 
       span {
-        font-size: 17px;
-        letter-spacing: 1px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        opacity: 0.8;
       }
     }
 
     #about_box {
-      margin-top: 18vh;
+      margin-top: 20vh;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -111,14 +117,21 @@ main {
       #about_us {
         font-size: 19px;
         font-weight: bold;
+        transition: all 0.25s ease;
+        cursor: pointer;
+
+        &:hover {
+          color: #bbb;
+        }
       }
 
       #about_text {
         margin-top: 2.2vh;
         width: 384px;
-        color: #bbbbbb;
+        color: #9b9aa6;
         font-size: 14px;
         text-align: start;
+        line-height: 140%;
       }
 
       #rod {
