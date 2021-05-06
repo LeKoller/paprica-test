@@ -5,11 +5,11 @@
       <span class="logo_name">BURGER<span class="yellow_chars">IAZ</span></span>
     </div>
 
-    <div id="link_case">
+    <div id="nav">
       <router-link to="/"> <span>Home</span> </router-link>
-      <router-link to="/#"> <span>New Menu</span> </router-link>
-      <router-link to="/#"> <span>About Us</span> </router-link>
-      <router-link to="/#"> <span>Main Course</span> </router-link>
+      <router-link to="/new_menu"> <span>New Menu</span> </router-link>
+      <router-link to="/about"> <span>About Us</span> </router-link>
+      <router-link to="/main_course"> <span>Main Course</span> </router-link>
     </div>
 
     <form id="search_bar" @submit.prevent="() => {}">
@@ -126,7 +126,7 @@ export default defineComponent({
     }
   }
 
-  #link_case {
+  #nav {
     margin-left: 16.36vw;
     display: flex;
 
@@ -137,7 +137,7 @@ export default defineComponent({
       span {
         padding: 6px 1.55vw;
         color: #000;
-        opacity: 38%;
+        opacity: 0.38;
         font-weight: 100;
         font-size: 18px;
         transition: all 0.25s ease;
@@ -150,8 +150,11 @@ export default defineComponent({
     }
 
     a.router-link-exact-active {
-      color: #101010;
-      opacity: 100%;
+      span {
+        color: #101010;
+        font-weight: bold;
+        opacity: 1;
+      }
     }
   }
 }
