@@ -8,6 +8,17 @@ No mais, fiquei muito satisfeito em fazer o teste, que me fez aplicar habilidade
 
 Foi utilizado o Vue.js e abaixo estão as instruções de uso após clonar o repositório. É preciso usar `yarn`.
 
+## Adição do dia 07/05/2021
+
+Com o tempo extra implementei um menu vertical saído do botão de hamburger. Também fiz um deploy no umbler.
+Link: http://burgeriaz-com.umbler.net/
+
+Será pedido um usuário e uma senha. São:
+
+usuário: `umbler`
+
+senha: `testehospedagem`
+
 # Vue instructions
 
 ## Project setup
