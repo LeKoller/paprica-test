@@ -268,21 +268,20 @@ export default defineComponent({
 
       div {
         padding: 6px 1.55vw;
-        opacity: 0.38;
+        /* opacity: 0.38; */
         font-weight: 100;
         font-size: 18px;
         transition: all 0.25s ease;
 
         span {
-          color: #000;
+          color: #9c9b9b;
         }
 
         &:hover {
-          background-color: #101010;
+          background-color: #9c9b9b;
 
           span {
             color: #fff;
-            opacity: 1;
           }
         }
       }
@@ -290,7 +289,7 @@ export default defineComponent({
 
     a.router-link-exact-active {
       .bar_menu {
-        color: #000;
+        color: #101010;
         font-weight: bold;
       }
 
