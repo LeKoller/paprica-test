@@ -27,25 +27,85 @@
       </button>
     </form>
 
-    <button id="buger_button">
-      <img src="@/assets/burger_button.png" alt="Button icon" />
-    </button>
+    <div id="menu_button_case">
+      <button
+        id="menu_button"
+        @click="() => (state.showMenu = !state.showMenu)"
+      >
+        <img src="@/assets/burger_button.png" alt="Button icon" />
+      </button>
+      <ul id="menu" v-if="state.showMenu">
+        <li
+          class="first_level"
+          @mouseenter="arrowDown('login')"
+          @mouseleave="arrowRight('login')"
+        >
+          <a href="#">Login</a>
+          <span class="material-icons arrow">
+            {{ state.arrow["login"] }}
+          </span>
+          <ul class="sub_menu">
+            <li><a href="#">Customer</a></li>
+            <li><a href="#">Collaborator</a></li>
+          </ul>
+        </li>
+        <li
+          class="first_level"
+          @mouseenter="arrowDown('signUp')"
+          @mouseleave="arrowRight('signUp')"
+        >
+          <a href="#">Sign Up</a>
+          <span class="material-icons arrow">
+            {{ state.arrow["signUp"] }}
+          </span>
+
+          <ul class="sub_menu">
+            <li><a href="#">Customer</a></li>
+            <li><a href="#">Collaborator</a></li>
+          </ul>
+        </li>
+        <li class="first_level"><a href="#">Partners</a></li>
+        <li class="first_level"><a href="#">News</a></li>
+      </ul>
+    </div>
   </div>
   <router-view />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 
 export default defineComponent({
   name: "NavBar",
-  setup() {},
+  setup() {
+    const state = reactive({
+      showMenu: false,
+      arrow: {
+        login: "chevron_right",
+        signUp: "chevron_right",
+      },
+    });
+
+    function arrowDown(segment) {
+      state.arrow[segment] = "expand_more";
+    }
+
+    function arrowRight(segment) {
+      state.arrow[segment] = "chevron_right";
+    }
+
+    return {
+      state,
+      arrowDown,
+      arrowRight,
+    };
+  },
 });
 </script>
 
 <style lang="scss" scoped>
 #nav {
-  z-index: 2;
+  z-index: 10;
   width: 83%;
   height: 59px;
   margin: 38px auto;
@@ -54,13 +114,77 @@ export default defineComponent({
   justify-content: flex-end;
   align-items: center;
 
-  #buger_button {
-    margin-left: 2.53vw;
-    padding: 8px;
-    border-radius: 6px;
+  #menu_button_case {
+    position: relative;
 
-    &:hover {
-      background-color: #f0f0f0;
+    #menu_button {
+      margin-left: 2.53vw;
+      padding: 8px;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    #menu {
+      position: absolute;
+      list-style-type: none;
+      list-style: none;
+      right: 0;
+
+      .first_level {
+        transition: all 0.25s ease;
+      }
+
+      li {
+        text-align: start;
+        color: #fff;
+        background-color: #e39b00;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        padding: 8px;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.4);
+        width: 160px;
+        position: relative;
+        transition: all 0.25s ease;
+
+        .arrow {
+          position: absolute;
+          right: 8px;
+          cursor: default;
+        }
+
+        .sub_menu {
+          z-index: 11;
+          position: absolute;
+          visibility: hidden;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin: 0;
+            right: 8px;
+            top: 8px;
+            background-color: #ffca58;
+
+            &:hover {
+              background-color: #ffba2a;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: #ffba2a;
+
+          .sub_menu {
+            z-index: 11;
+            visibility: visible;
+            position: relative;
+          }
+        }
+      }
     }
   }
 
