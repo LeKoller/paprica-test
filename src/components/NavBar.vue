@@ -6,10 +6,18 @@
     </div>
 
     <div id="nav">
-      <router-link to="/"> <span>Home</span> </router-link>
-      <router-link to="/new_menu"> <span>New Menu</span> </router-link>
-      <router-link to="/about"> <span>About Us</span> </router-link>
-      <router-link to="/main_course"> <span>Main Course</span> </router-link>
+      <router-link to="/"
+        ><div><span class="bar_menu">Home</span></div></router-link
+      >
+      <router-link to="/new_menu"
+        ><div><span class="bar_menu">New Menu</span></div></router-link
+      >
+      <router-link to="/about"
+        ><div><span class="bar_menu">About Us</span></div></router-link
+      >
+      <router-link to="/main_course"
+        ><div><span class="bar_menu">Main Course</span></div></router-link
+      >
     </div>
 
     <form id="search_bar" @submit.prevent="() => {}">
@@ -167,10 +175,10 @@ export default defineComponent({
             margin: 0;
             right: 8px;
             top: 8px;
-            background-color: #ffca58;
+            background-color: #ffba2a;
 
             &:hover {
-              background-color: #ffba2a;
+              background-color: #ffca58;
             }
           }
         }
@@ -258,26 +266,38 @@ export default defineComponent({
       text-decoration: none;
       outline: none;
 
-      span {
+      div {
         padding: 6px 1.55vw;
-        color: #000;
         opacity: 0.38;
         font-weight: 100;
         font-size: 18px;
         transition: all 0.25s ease;
 
+        span {
+          color: #000;
+        }
+
         &:hover {
           background-color: #101010;
-          color: #fff;
+
+          span {
+            color: #fff;
+            opacity: 1;
+          }
         }
       }
     }
 
     a.router-link-exact-active {
-      span {
-        color: #101010;
+      .bar_menu {
+        color: #000;
         font-weight: bold;
-        opacity: 1;
+      }
+
+      &:hover {
+        span {
+          color: #fff;
+        }
       }
     }
   }
